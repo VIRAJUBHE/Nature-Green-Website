@@ -1,0 +1,44 @@
+<section id="specifications" class="specifications-section">
+  <div class="section-shell specifications-grid">
+    <div appReveal>
+      <app-section-heading
+        kicker="Specifications"
+        title="Categorized Finish Details for Fast Review"
+        description="Expandable cards keep the technical content compact on mobile and easy to scan on desktop."
+      />
+      <div class="finish-card">
+        <p class="finish-title">Premium finish palette</p>
+        <p class="finish-description">
+          RCC structure, premium flooring, branded fittings, modular electrical planning, and durable wet-area detailing.
+        </p>
+      </div>
+    </div>
+
+    <div appReveal class="spec-panel-list">
+      @for (item of specifications; track item.title; let first = $first) {
+        <details class="spec-panel">
+          <summary class="spec-panel-header">
+            <span>
+              <span class="spec-title">{{ item.title }}</span>
+            </span>
+            <span class="spec-summary">
+              {{ item.summary }}
+            </span>
+          </summary>
+
+          <div class="spec-panel-body">
+            <p class="spec-summary-mobile">{{ item.summary }}</p>
+            @for (point of item.points; track point) {
+              <p class="spec-point">
+                <span class="spec-point-icon">
+                  <lucide-icon name="Check" size="12"></lucide-icon>
+                </span>
+                {{ point }}
+              </p>
+            }
+          </div>
+        </details>
+      }
+    </div>
+  </div>
+</section>

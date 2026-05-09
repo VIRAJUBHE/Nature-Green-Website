@@ -1,0 +1,24 @@
+<section id="highlights" class="highlights-section">
+  <div class="section-shell">
+    <div appReveal>
+      <app-section-heading
+        kicker="Project highlights"
+        title="Premium Living Planned Around Comfort"
+        description="Nature Green brings together peaceful green surroundings, modern architecture, strong connectivity, and thoughtfully planned 2BHK spaces."
+        align="center"
+      />
+    </div>
+
+    <div class="highlights-grid">
+      @for (item of highlights; track item.title) {
+        <article appReveal class="highlight-card luxury-card">
+          <div class="highlight-icon">
+            <lucide-icon [name]="item.icon" size="22"></lucide-icon>
+          </div>
+          <h3 class="highlight-title">{{ item.title }}</h3>
+          <p class="highlight-description">{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

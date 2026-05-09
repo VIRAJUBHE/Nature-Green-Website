@@ -1,0 +1,62 @@
+<section id="gallery" class="gallery-section">
+  <div class="section-shell">
+    <div appReveal>
+      <app-section-heading
+        kicker="Gallery"
+        title="A Visual Showcase Of Modern Residential Living"
+        description="Explore the thoughtfully designed architecture, elegant elevation, spacious interiors, modern amenities, and premium residential environment of Nature Green. Every space is crafted to reflect comfort, functionality, and refined urban living in the heart of Bavdhan, Pune."
+        align="center"
+      />
+    </div>
+
+    <div class="gallery-grid">
+      @for (image of gallery; track image.title) {
+        <button
+          appReveal
+          type="button"
+          class="gallery-item"
+          (click)="preview(image)"
+          [attr.aria-label]="'Preview ' + image.title"
+        >
+          @if (image.mediaType === 'video') {
+            <video
+              #galleryVideo
+              class="gallery-image gallery-video"
+              [src]="image.src"
+              [class.is-tall]="image.tall"
+              [attr.aria-label]="image.alt"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+            ></video>
+          } @else {
+            <img
+              [src]="image.src"
+              [alt]="image.alt"
+              class="gallery-image"
+              [class.is-tall]="image.tall"
+              loading="lazy"
+              decoding="async"
+            />
+          }
+          <span class="gallery-overlay"></span>
+          <span class="gallery-caption">
+            <span>
+              <span class="gallery-category">{{ image.category }}</span>
+              <span class="gallery-title">{{ image.title }}</span>
+            </span>
+            <span class="gallery-zoom-icon">
+              <lucide-icon name="Maximize2" size="18"></lucide-icon>
+            </span>
+          </span>
+        </button>
+      }
+    </div>
+  </div>
+
+  @if (previewImage(); as image) {
+    <app-image-preview-dialog [data]="image" (closed)="closePreview()" />
+  }
+</section>

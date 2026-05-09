@@ -1,0 +1,117 @@
+.gallery-section {
+  overflow: hidden;
+  background: #fbfcf8;
+  color: #111111;
+}
+
+.gallery-grid {
+  columns: 1;
+  column-gap: 1.25rem;
+  margin-top: 3.5rem;
+}
+
+.gallery-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  break-inside: avoid;
+  border: 1px solid rgb(59 13 17 / 0.1);
+  background: #ffffff;
+  text-align: left;
+  box-shadow: 0 24px 80px rgb(59 13 17 / 0.1);
+}
+
+:host-context(.dark) .gallery-item {
+  border-color: rgb(255 255 255 / 0.12);
+  background: rgb(255 255 255 / 0.06);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 0.25);
+}
+
+.gallery-image {
+  display: block;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 700ms ease;
+}
+
+.gallery-image.is-tall {
+  aspect-ratio: 3 / 4;
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05);
+}
+
+.gallery-video {
+  background: #000000;
+}
+
+.gallery-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.8), rgb(0 0 0 / 0.1), transparent);
+  opacity: 0.8;
+}
+
+.gallery-caption {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.gallery-category {
+  display: block;
+  color: rgb(255 255 255 / 0.55);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.gallery-title {
+  display: block;
+  margin-top: 0.25rem;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.gallery-zoom-icon {
+  display: grid;
+  height: 2.5rem;
+  width: 2.5rem;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.2);
+  background: rgb(255 255 255 / 0.1);
+  color: #ffffff;
+  backdrop-filter: blur(12px);
+}
+
+:host-context(.dark) .gallery-section {
+  background: #111111;
+  color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    columns: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-grid {
+    columns: 3;
+  }
+}

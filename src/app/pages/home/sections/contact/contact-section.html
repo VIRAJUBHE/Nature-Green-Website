@@ -1,0 +1,78 @@
+<section id="contact" class="contact-section">
+  <div class="section-shell contact-grid">
+    <div appReveal>
+      <p class="section-kicker">ENQUIRE NOW</p>
+      <h2 class="contact-title">
+        Enquire About Nature Green
+      </h2>
+      <p class="contact-description">
+        Contact Avani Construction for project details, floor plans, pricing, amenities, and site visit information for Nature Green.
+      </p>
+
+      <div class="contact-list">
+        <a class="contact-row" [href]="content.brand.phoneHref">
+          <lucide-icon name="Phone" size="20"></lucide-icon>
+          <span>{{ content.brand.phone }}</span>
+        </a>
+        <a class="contact-row" [href]="content.brand.emailHref">
+          <lucide-icon name="Mail" size="20"></lucide-icon>
+          <span>{{ content.brand.email }}</span>
+        </a>
+        <div class="contact-row">
+          <lucide-icon name="MapPin" size="20"></lucide-icon>
+          <span>{{ content.brand.location }}</span>
+        </div>
+      </div>
+    </div>
+
+    <form appReveal #form="ngForm" class="contact-form" (ngSubmit)="submit(form)">
+      <div class="field-grid">
+        <label class="field">
+          <span>Name</span>
+          <input name="name" ngModel required autocomplete="name" placeholder="Your name" />
+        </label>
+        <label class="field">
+          <span>Phone</span>
+          <input name="phone" ngModel required inputmode="tel" autocomplete="tel" placeholder="+91" />
+        </label>
+      </div>
+
+      <label class="field field-spaced">
+        <span>Email</span>
+        <input name="email" ngModel type="email" autocomplete="email" placeholder="you@example.com" />
+      </label>
+
+      <label class="field field-spaced">
+        <span>Message</span>
+        <textarea name="message" ngModel rows="5" placeholder="I want to know more about Nature Green"></textarea>
+      </label>
+
+      <div class="form-actions">
+        <button class="btn-primary" type="submit">
+          {{ sending() ? 'Sending...' : 'Request A Callback' }}
+          <lucide-icon name="ChevronRight" size="18"></lucide-icon>
+        </button>
+        <a class="btn-outline-dark" [href]="content.brand.whatsappHref" target="_blank" rel="noopener">
+          WhatsApp
+        </a>
+      </div>
+
+      @if (submitted()) {
+        <p class="form-success">
+          Our team will connect with you shortly regarding your enquiry.
+        </p>
+      }
+    </form>
+  </div>
+
+  <a
+    class="whatsapp-float"
+    [href]="content.brand.whatsappHref"
+    target="_blank"
+    rel="noopener"
+    aria-label="Chat on WhatsApp"
+  >
+    <lucide-icon name="Phone" size="18"></lucide-icon>
+    WhatsApp
+  </a>
+</section>

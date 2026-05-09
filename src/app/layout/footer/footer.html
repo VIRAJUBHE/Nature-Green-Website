@@ -1,0 +1,45 @@
+<footer class="site-footer">
+  <div class="footer-shell">
+    <div>
+      <img [src]="content.brand.logo" [alt]="content.brand.companyName + ' logo'" class="footer-logo" loading="lazy" decoding="async" />
+      <p class="footer-description">
+        Avani Construction delivers thoughtfully designed residential spaces focused on quality, comfort, and modern urban living in Pune.
+      </p>
+    </div>
+
+    <div>
+      <h2 class="footer-heading">Quick links</h2>
+      <div class="footer-link-list">
+        @for (link of content.footerLinks; track link) {
+          <a class="footer-link" [href]="'#' + sectionId(link)">{{ link }}</a>
+        }
+      </div>
+    </div>
+
+    <div>
+      <h2 class="footer-heading">Contact</h2>
+      <div class="footer-contact-list">
+        <a class="footer-contact-row" [href]="content.brand.phoneHref">
+          <lucide-icon name="Phone" size="18"></lucide-icon>
+          {{ content.brand.phone }}
+        </a>
+        <a class="footer-contact-row" [href]="content.brand.emailHref">
+          <lucide-icon name="Mail" size="18"></lucide-icon>
+          {{ content.brand.email }}
+        </a>
+        <p class="footer-contact-row">
+          <lucide-icon name="MapPin" size="18"></lucide-icon>
+          {{ content.brand.location }}
+        </p>
+        <p class="footer-contact-row">
+          <lucide-icon name="ShieldCheck" size="18"></lucide-icon>
+          MahaRERA No. {{ content.brand.reraNumber }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2026 Avani Construction. All Rights Reserved. MahaRERA No. {{ content.brand.reraNumber }}
+  </div>
+</footer>

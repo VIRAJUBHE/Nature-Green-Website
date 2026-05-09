@@ -1,0 +1,38 @@
+<app-navbar />
+
+<main>
+  <app-hero-section />
+
+  <app-about-section />
+
+  <app-highlights-section />
+
+  <app-gallery-section />
+
+  <app-floor-plan-section />
+
+  <app-amenities-section />
+
+  <app-nearby-section />
+
+  <app-map-section />
+
+  <app-previous-projects-section />
+
+  <app-brochure-section />
+
+  <app-contact-section />
+</main>
+
+<app-footer />
+
+@if (showBackToTop()) {
+  <button
+    class="back-to-top-button"
+    type="button"
+    aria-label="Back to top"
+    (click)="backToTop()"
+  >
+    <lucide-icon name="ArrowUp" size="20"></lucide-icon>
+  </button>
+}

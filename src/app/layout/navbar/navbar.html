@@ -1,0 +1,69 @@
+<header
+  class="site-header"
+  [class.navbar-scrolled]="isScrolled()"
+>
+  <nav class="site-nav" aria-label="Primary navigation">
+    <button class="brand-button" type="button" (click)="scrollTo('home')" aria-label="Go to Nature Green home">
+      <span class="brand-mark">
+        <img [src]="content.brand.mark" alt="" class="brand-logo" loading="eager" decoding="async" />
+      </span>
+      <span class="brand-copy">
+        <span class="brand-company">{{ content.brand.companyName }}</span>
+        <span class="brand-project">{{ content.brand.projectName }}</span>
+      </span>
+    </button>
+
+    <div class="nav-links">
+      <button
+        type="button"
+        class="nav-pill"
+        [class.is-active]="activeSection() === 'home'"
+        (click)="scrollTo('home')"
+      >
+        Home
+      </button>
+      @for (item of content.navItems; track item.href) {
+        <button
+          type="button"
+          class="nav-pill"
+          [class.is-active]="activeSection() === item.href"
+          (click)="scrollTo(item.href)"
+        >
+          {{ item.label }}
+        </button>
+      }
+    </div>
+
+    <div class="nav-actions">
+      <button
+        class="icon-button"
+        type="button"
+        [attr.aria-label]="theme.mode() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+        (click)="theme.toggle()"
+      >
+        <lucide-icon [name]="theme.mode() === 'dark' ? 'Sun' : 'Moon'" size="18"></lucide-icon>
+      </button>
+
+      <a class="call-button" [href]="content.brand.phoneHref">
+        Call Now
+      </a>
+
+      <button class="icon-button menu-button" type="button" aria-label="Open menu" (click)="isOpen.set(!isOpen())">
+        <lucide-icon [name]="isOpen() ? 'X' : 'Menu'" size="20"></lucide-icon>
+      </button>
+    </div>
+  </nav>
+
+  @if (isOpen()) {
+    <div class="mobile-panel">
+      <button class="mobile-link" type="button" (click)="scrollTo('home')">Home</button>
+      @for (item of content.navItems; track item.href) {
+        <button class="mobile-link" type="button" (click)="scrollTo(item.href)">{{ item.label }}</button>
+      }
+      <a class="mobile-call" [href]="content.brand.phoneHref">
+        <lucide-icon name="Phone" size="17"></lucide-icon>
+        Call Now
+      </a>
+    </div>
+  }
+</header>

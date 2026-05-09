@@ -1,0 +1,17 @@
+<div class="section-heading-root" [class.is-centered]="align() === 'center'">
+  <p class="section-kicker">{{ kicker() }}</p>
+  <h2
+    class="section-heading-title"
+    [class.is-inverse]="tone() === 'inverse'"
+  >
+    {{ title() }}
+  </h2>
+  @if (description()) {
+    <p
+      class="section-heading-description"
+      [class.is-inverse]="tone() === 'inverse'"
+    >
+      {{ description() }}
+    </p>
+  }
+</div>

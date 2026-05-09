@@ -1,0 +1,99 @@
+:host {
+  display: block;
+}
+
+.map-section {
+  background: #fbfcf8;
+}
+
+.map-card {
+  display: grid;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(0 0 0 / 0.1);
+  background: #ffffff;
+  box-shadow: 0 25px 50px rgb(0 0 0 / 0.1);
+}
+
+.map-copy {
+  padding: 2rem;
+}
+
+.map-title {
+  margin-top: 1rem;
+  color: #111111;
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+.map-description {
+  margin-top: 1.25rem;
+  color: rgb(0 0 0 / 0.6);
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+
+.map-address-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  background: #0f3d2e;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.map-address-icon {
+  display: grid;
+  height: 3rem;
+  width: 3rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #2e7d32;
+}
+
+.map-address-title {
+  font-weight: 700;
+}
+
+.map-address-text {
+  color: rgb(255 255 255 / 0.62);
+  font-size: 0.875rem;
+}
+
+.map-frame {
+  min-height: 24rem;
+  width: 100%;
+}
+
+:host-context(.dark) .map-section {
+  background: #09090a;
+}
+
+:host-context(.dark) .map-card {
+  border-color: rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.06);
+}
+
+:host-context(.dark) .map-title {
+  color: #ffffff;
+}
+
+:host-context(.dark) .map-description {
+  color: rgb(255 255 255 / 0.62);
+}
+
+@media (min-width: 1024px) {
+  .map-card {
+    grid-template-columns: 0.72fr 1.28fr;
+  }
+
+  .map-copy {
+    padding: 2.5rem;
+  }
+
+  .map-frame {
+    min-height: 32rem;
+  }
+}

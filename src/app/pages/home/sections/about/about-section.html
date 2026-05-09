@@ -1,0 +1,48 @@
+<section id="about" class="about-section">
+  <div class="section-shell about-grid">
+    <div appReveal class="about-media">
+      <div class="about-glow"></div>
+      <img
+        [src]="content.assets.about"
+        alt="Nature Green residential apartment overview"
+        class="about-image"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="about-badge-panel glass-panel">
+        <p class="about-badge-label">Project Type</p>
+        <p class="about-badge-value">{{ content.brand.flatType }} {{ content.brand.projectType }}</p>
+      </div>
+    </div>
+
+    <div appReveal>
+      <p class="section-kicker">Premium Living Surrounded
+By Nature & Convenience</p>
+      <h2 class="about-title">
+        {{ content.about.title }}
+      </h2>
+      <p class="about-body">
+        {{ content.about.body }}
+      </p>
+
+      <div class="about-badges">
+        @for (badge of content.about.badges; track badge) {
+          <span class="about-badge">
+            {{ badge }}
+          </span>
+        }
+      </div>
+
+      <div class="about-points">
+        @for (point of content.about.points; track point) {
+          <div class="about-point">
+            <span class="about-point-icon">
+              <lucide-icon name="Check" size="16"></lucide-icon>
+            </span>
+            <p class="about-point-text">{{ point }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+<section id="home" class="hero-section">
+  <img
+    class="hero-background"
+    [src]="content.assets.hero"
+    alt="Nature Green premium apartment building exterior"
+    fetchpriority="high"
+    loading="eager"
+    decoding="async"
+  />
+  <div class="hero-overlay"></div>
+  <div class="hero-fade"></div>
+
+  <div class="hero-shell">
+    <div class="hero-copy">
+      <p class="hero-kicker">{{ content.hero.kicker }}</p>
+      <h1 class="hero-title">
+        {{ content.hero.title }}
+      </h1>
+      <p class="hero-subtitle">
+        {{ content.hero.subtitle }}
+      </p>
+      <p class="hero-description">
+        {{ content.hero.description }}
+      </p>
+
+      <div class="hero-actions">
+        <a href="#floor-plans" class="btn-primary">
+          View Floor Plans
+          <lucide-icon name="ChevronRight" size="18"></lucide-icon>
+        </a>
+        <a [href]="content.assets.brochure" download class="btn-outline-dark">
+          <lucide-icon name="Download" size="18"></lucide-icon>
+          Download Brochure
+        </a>
+        <a href="#contact" class="btn-outline-dark">
+          <lucide-icon name="Phone" size="18"></lucide-icon>
+          Contact Us
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-card-stack">
+      <div class="hero-stats-card glass-panel">
+        <img [src]="content.brand.logo" [alt]="content.brand.companyName + ' logo'" class="hero-logo" loading="eager" decoding="async" />
+        <div class="hero-stats-grid">
+          @for (stat of content.hero.stats; track stat.label) {
+            <div class="hero-stat">
+              <p class="hero-stat-value">{{ stat.value }}</p>
+              <p class="hero-stat-label">{{ stat.label }}</p>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="hero-location-card">
+        <p class="hero-location-label">Location</p>
+        <div class="hero-location-row">
+          <span class="hero-location-icon">
+            <lucide-icon name="MapPin" size="20"></lucide-icon>
+          </span>
+          <div>
+            <p class="hero-location-title">{{ content.brand.location }}</p>
+            <p class="hero-location-meta">{{ content.brand.projectType }} | {{ content.brand.flatType }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,132 @@
+:host {
+  display: block;
+}
+
+.previous-projects-section {
+  background: #fbfcf8;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.ongoing-project-card,
+.project-card {
+  display: block;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(0 0 0 / 0.1);
+  background: #ffffff;
+  box-shadow: 0 20px 32px rgb(0 0 0 / 0.05);
+}
+
+.ongoing-project-card {
+  max-width: 58rem;
+  margin: 3.5rem auto 0;
+}
+
+.ongoing-image-wrap,
+.project-image-wrap {
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #f5f1eb;
+}
+
+.ongoing-image,
+.project-image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 700ms ease;
+}
+
+.ongoing-project-card:hover .ongoing-image,
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+.ongoing-content,
+.project-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.ongoing-location {
+  margin-top: 0.45rem;
+  color: rgb(0 0 0 / 0.58);
+  font-size: 0.9rem;
+}
+
+.completed-heading {
+  margin-top: 3rem;
+  color: #111111;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.project-eyebrow {
+  color: #2e7d32;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.project-title {
+  margin-top: 0.5rem;
+  color: #111111;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.project-icon {
+  display: grid;
+  height: 2.5rem;
+  width: 2.5rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #0f3d2e;
+  color: #ffffff;
+}
+
+:host-context(.dark) .previous-projects-section {
+  background: #09090a;
+}
+
+:host-context(.dark) .project-card {
+  border-color: rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.06);
+}
+
+:host-context(.dark) .ongoing-project-card {
+  border-color: rgb(255 255 255 / 0.1);
+  background: rgb(255 255 255 / 0.06);
+}
+
+:host-context(.dark) .ongoing-location {
+  color: rgb(255 255 255 / 0.58);
+}
+
+:host-context(.dark) .completed-heading,
+:host-context(.dark) .project-title {
+  color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

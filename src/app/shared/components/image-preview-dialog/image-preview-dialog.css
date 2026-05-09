@@ -1,0 +1,151 @@
+.preview-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 0.75rem;
+  background: rgb(0 0 0 / 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.preview-dialog {
+  position: relative;
+  max-height: 96dvh;
+  width: min(96vw, 72rem);
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #111111;
+  color: #ffffff;
+}
+
+.preview-toolbar {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.preview-caption {
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  background: rgb(0 0 0 / 0.45);
+  padding: 0.5rem 1rem;
+  backdrop-filter: blur(12px);
+}
+
+.preview-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.preview-description {
+  color: rgb(255 255 255 / 0.6);
+  font-size: 0.75rem;
+}
+
+.preview-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dialog-icon-btn {
+  display: inline-grid;
+  height: 2.5rem;
+  width: 2.5rem;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  background: rgb(0 0 0 / 0.45);
+  color: white;
+  backdrop-filter: blur(12px);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.dialog-icon-btn:hover {
+  transform: translateY(-1px);
+  background: rgb(255 255 255 / 0.16);
+}
+
+.preview-stage {
+  display: grid;
+  height: min(82dvh, 52rem);
+  place-items: center;
+  overflow: auto;
+  background: #000000;
+  padding: 4.75rem 1rem 1rem;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: calc(82dvh - 5.75rem);
+  border-radius: 0.5rem;
+  object-fit: contain;
+  transform-origin: center center;
+  transition: transform 300ms ease;
+}
+
+.preview-video {
+  width: 100%;
+  transform: none;
+}
+
+@media (max-width: 639px) {
+  .preview-backdrop {
+    padding: 0.45rem;
+  }
+
+  .preview-dialog {
+    width: 100%;
+    max-height: 98dvh;
+    border-radius: 0.65rem;
+  }
+
+  .preview-toolbar {
+    top: 0.6rem;
+    right: 0.6rem;
+    left: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .preview-caption {
+    max-width: calc(100% - 8.5rem);
+    border-radius: 0.65rem;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .preview-title {
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .preview-description {
+    font-size: 0.68rem;
+  }
+
+  .preview-actions {
+    gap: 0.35rem;
+  }
+
+  .dialog-icon-btn {
+    height: 2.15rem;
+    width: 2.15rem;
+  }
+
+  .preview-stage {
+    height: 92dvh;
+    min-height: 0;
+    padding: 4.25rem 0.6rem 0.75rem;
+  }
+
+  .preview-image {
+    max-width: 100%;
+    max-height: calc(92dvh - 5rem);
+  }
+}

@@ -1,0 +1,69 @@
+<section id="floor-plans" class="floor-plan-section">
+  <div class="section-shell floor-plan-grid">
+    <div appReveal>
+      <app-section-heading
+        kicker="FLOOR PLAN VIEWER"
+        title="Spacious 2BHK Planning
+Designed Around Everyday Comfort"
+        description="Nature Green offers intelligently planned 2BHK residences designed to maximize space utilization, natural ventilation, functional movement, and everyday comfort. Each layout is thoughtfully crafted to provide a balanced combination of privacy, openness, and modern family living requirements."
+      />
+
+      <div class="plan-summary-grid">
+        <div class="plan-summary-card">
+          <p class="plan-summary-label">Flat type</p>
+          <p class="plan-summary-value">Premium 2BHK</p>
+        </div>
+        <div class="plan-summary-card">
+          <p class="plan-summary-label">CARPET AREA</p>
+          <p class="plan-summary-value">{{ plan.area }}</p>
+        </div>
+        <div class="plan-summary-card">
+          <p class="plan-summary-label">Floors</p>
+          <p class="plan-summary-value">{{ content.brand.totalFloors }}</p>
+        </div>
+        <div class="plan-summary-card">
+          <p class="plan-summary-label">Flats</p>
+          <p class="plan-summary-value">{{ content.brand.totalFlats }}</p>
+        </div>
+        <div class="plan-summary-card">
+          <p class="plan-summary-label">Starting package</p>
+          <p class="plan-summary-value">{{ content.brand.startingPrice }}</p>
+        </div>
+        <div class="plan-summary-card">
+          <p class="plan-summary-label">MahaRERA No.</p>
+          <p class="plan-summary-value plan-summary-value-small">{{ content.brand.reraNumber }}</p>
+        </div>
+      </div>
+
+      <ul class="plan-details">
+        @for (detail of plan.details; track detail) {
+          <li class="plan-detail">
+            <span class="plan-detail-icon">
+              <lucide-icon name="Check" size="14"></lucide-icon>
+            </span>
+            {{ detail }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <button
+      appReveal
+      type="button"
+      class="plan-preview-button"
+      (click)="preview()"
+      aria-label="Open 2BHK floor plan preview"
+    >
+      <div class="plan-preview-frame">
+        <img [src]="plan.image" [alt]="plan.alt" class="plan-preview-image" loading="lazy" decoding="async" />
+        <div class="plan-preview-icon">
+          <lucide-icon name="Maximize2" size="20"></lucide-icon>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  @if (previewPlan(); as planPreview) {
+    <app-image-preview-dialog [data]="planPreview" (closed)="closePreview()" />
+  }
+</section>

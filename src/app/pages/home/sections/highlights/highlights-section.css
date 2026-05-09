@@ -1,0 +1,90 @@
+:host {
+  display: block;
+}
+
+.highlights-section {
+  background: #fbfcf8;
+}
+
+.highlights-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 3.5rem;
+}
+
+.highlight-icon {
+  display: grid;
+  height: 3rem;
+  width: 3rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #0f3d2e;
+  color: #ffffff;
+  transition: background 300ms ease;
+}
+
+.highlight-card:hover .highlight-icon {
+  background: #2e7d32;
+}
+
+.highlight-title {
+  margin-top: 1.5rem;
+  color: #111111;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.highlight-description {
+  margin-top: 0.75rem;
+  color: rgb(0 0 0 / 0.6);
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+
+:host-context(.dark) .highlights-section {
+  background: #09090a;
+}
+
+:host-context(.dark) .highlight-title {
+  color: #ffffff;
+}
+
+:host-context(.dark) .highlight-description {
+  color: rgb(255 255 255 / 0.6);
+}
+
+@media (min-width: 640px) {
+  .highlights-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .highlights-grid {
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .highlight-icon {
+    height: 2.55rem;
+    width: 2.55rem;
+  }
+
+  .highlight-title {
+    margin-top: 1rem;
+    font-size: 1.02rem;
+    line-height: 1.35;
+  }
+
+  .highlight-description {
+    margin-top: 0.55rem;
+    font-size: 0.84rem;
+    line-height: 1.55rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .highlights-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

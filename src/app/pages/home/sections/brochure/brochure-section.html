@@ -1,0 +1,33 @@
+<section id="brochure" class="brochure-section">
+  <div class="section-shell brochure-grid">
+    <div appReveal>
+      <p class="section-kicker">PROJECT BROCHURE</p>
+      <h2 class="brochure-title">
+        Download The Complete
+        Nature Green Brochure
+      </h2>
+      <p class="brochure-description">
+        Download the Nature Green brochure to explore project highlights, floor plans, amenities, specifications, and location advantages by Avani Construction.
+      </p>
+      <a class="btn-primary brochure-button" [href]="content.assets.brochure" download>
+        <lucide-icon name="Download" size="18"></lucide-icon>
+        Download Brochure
+      </a>
+    </div>
+
+    <a
+      appReveal
+      class="brochure-card"
+      [href]="content.assets.brochure"
+      target="_blank"
+      rel="noopener"
+      aria-label="Open Nature Green brochure PDF"
+    >
+      <img [src]="content.assets.brochureCover" alt="Nature Green brochure cover preview" class="brochure-cover" loading="lazy" decoding="async" />
+      <div class="brochure-card-caption">
+        <p class="brochure-card-title">Nature Green</p>
+        <p class="brochure-card-subtitle">Premium 2BHK Homes at Bavdhan</p>
+      </div>
+    </a>
+  </div>
+</section>

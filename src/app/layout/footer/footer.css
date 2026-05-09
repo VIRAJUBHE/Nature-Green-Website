@@ -1,0 +1,121 @@
+:host {
+  display: block;
+}
+
+.site-footer {
+  border-top: 1px solid rgb(0 0 0 / 0.1);
+  background: #ffffff;
+  color: #111111;
+}
+
+:host-context(.dark) .site-footer {
+  border-top-color: rgb(255 255 255 / 0.1);
+  background: #111111;
+  color: #ffffff;
+}
+
+.footer-shell {
+  display: grid;
+  max-width: 80rem;
+  margin-inline: auto;
+  gap: 2.5rem;
+  padding: 3rem 1rem;
+}
+
+.footer-logo {
+  height: 4rem;
+  width: auto;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(0 0 0 / 0.05);
+  background: #ffffff;
+  object-fit: contain;
+  padding: 0.5rem;
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.05);
+}
+
+.footer-description {
+  max-width: 28rem;
+  margin-top: 1.25rem;
+  color: rgb(0 0 0 / 0.58);
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+
+.footer-heading {
+  color: #2e7d32;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.footer-link-list {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  color: rgb(0 0 0 / 0.65);
+  font-size: 0.875rem;
+}
+
+.footer-link,
+.footer-contact-row {
+  transition: color 180ms ease;
+}
+
+.footer-link:hover,
+.footer-contact-row:hover {
+  color: #2e7d32;
+}
+
+.footer-contact-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  color: rgb(0 0 0 / 0.65);
+  font-size: 0.875rem;
+}
+
+.footer-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgb(0 0 0 / 0.1);
+  background: #fbfcf8;
+  padding: 1.25rem 1rem;
+  color: rgb(0 0 0 / 0.45);
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+:host-context(.dark) .footer-description,
+:host-context(.dark) .footer-link-list,
+:host-context(.dark) .footer-contact-list {
+  color: rgb(255 255 255 / 0.7);
+}
+
+:host-context(.dark) .footer-link:hover,
+:host-context(.dark) .footer-contact-row:hover {
+  color: #ffffff;
+}
+
+:host-context(.dark) .footer-bottom {
+  border-top-color: rgb(255 255 255 / 0.1);
+  background: #0b0b0c;
+  color: rgb(255 255 255 / 0.45);
+}
+
+@media (min-width: 640px) {
+  .footer-shell {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-shell {
+    grid-template-columns: 1.4fr 0.8fr 1fr;
+    padding-inline: 2rem;
+  }
+}

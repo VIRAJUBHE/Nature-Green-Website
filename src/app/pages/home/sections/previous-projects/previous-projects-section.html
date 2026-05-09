@@ -1,0 +1,62 @@
+<section id="previous-projects" class="previous-projects-section">
+  <div class="section-shell">
+    <div appReveal>
+      <app-section-heading
+        kicker="OUR PROJECTS"
+        title="Trusted Construction Backed By Quality Projects"
+        description="Explore Avani Construction's current and completed residential projects focused on quality construction, modern living, and lasting customer trust."
+        align="center"
+      />
+    </div>
+
+    <a
+      appReveal
+      class="ongoing-project-card"
+      [href]="ongoingProject.mapHref"
+      target="_blank"
+      rel="noopener"
+      [attr.aria-label]="'Open ' + ongoingProject.title + ' location in Google Maps'"
+    >
+      <div class="ongoing-image-wrap">
+        <img
+          [src]="ongoingProject.image"
+          [alt]="ongoingProject.title + ' ongoing project image'"
+          class="ongoing-image"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="ongoing-content">
+        <div>
+          <p class="project-eyebrow">Ongoing Project</p>
+          <h3 class="project-title">{{ ongoingProject.title }}</h3>
+          <p class="ongoing-location">{{ ongoingProject.location }}</p>
+        </div>
+        <span class="project-icon">
+          <lucide-icon name="MapPin" size="18"></lucide-icon>
+        </span>
+      </div>
+    </a>
+
+    <h3 appReveal class="completed-heading">Completed Developments</h3>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.title) {
+        <article appReveal class="project-card">
+          <div class="project-image-wrap">
+            <img [src]="project.image" [alt]="project.title + ' project image'" class="project-image" loading="lazy" decoding="async" />
+          </div>
+          <div class="project-content">
+            <div>
+              <p class="project-eyebrow">Avani Construction</p>
+              <h3 class="project-title">{{ project.title }}</h3>
+            </div>
+            <span class="project-icon">
+              <lucide-icon name="Building2" size="18"></lucide-icon>
+            </span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

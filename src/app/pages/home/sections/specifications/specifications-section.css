@@ -1,0 +1,157 @@
+:host {
+  display: block;
+}
+
+.specifications-section {
+  background: #fbfcf8;
+}
+
+.specifications-grid {
+  display: grid;
+  gap: 3rem;
+}
+
+.finish-card {
+  margin-top: 2rem;
+  border-radius: 0.5rem;
+  background: #111111;
+  padding: 1.5rem;
+  color: #ffffff;
+}
+
+.finish-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.finish-description {
+  margin-top: 1rem;
+  color: rgb(255 255 255 / 0.62);
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+
+.spec-panel-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.spec-panel {
+  border-radius: 1rem;
+  border: 1px solid rgb(17 17 17 / 0.08);
+  background: rgb(255 255 255 / 0.84);
+  padding: 0 1rem;
+}
+
+.dark .spec-panel {
+  border-color: rgb(255 255 255 / 0.11);
+  background: rgb(255 255 255 / 0.07);
+  color: #ffffff;
+}
+
+.spec-panel-header {
+  display: grid;
+  min-height: 4rem;
+  cursor: pointer;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  padding: 1rem 0;
+}
+
+.spec-summary {
+  display: none;
+  font-size: 0.875rem;
+}
+
+.spec-panel-header::-webkit-details-marker {
+  display: none;
+}
+
+.spec-panel-header::after {
+  content: '+';
+  display: grid;
+  height: 2rem;
+  width: 2rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #2e7d32;
+  color: white;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.spec-title {
+  font-weight: 700;
+}
+
+.spec-panel[open] .spec-panel-header::after {
+  content: '-';
+}
+
+.spec-panel-body {
+  padding: 0.5rem 0 0.75rem;
+}
+
+.spec-panel-body > * + * {
+  margin-top: 0.75rem;
+}
+
+.spec-summary-mobile {
+  color: rgb(0 0 0 / 0.6);
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+
+.spec-point {
+  display: flex;
+  gap: 0.75rem;
+  color: rgb(0 0 0 / 0.65);
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+}
+
+.spec-point-icon {
+  display: grid;
+  flex-shrink: 0;
+  height: 1.25rem;
+  width: 1.25rem;
+  place-items: center;
+  margin-top: 0.25rem;
+  border-radius: 999px;
+  background: #2e7d32;
+  color: #ffffff;
+}
+
+:host-context(.dark) .specifications-section {
+  background: #09090a;
+}
+
+:host-context(.dark) .finish-card {
+  background: rgb(255 255 255 / 0.06);
+}
+
+:host-context(.dark) .spec-summary-mobile {
+  color: rgb(255 255 255 / 0.62);
+}
+
+:host-context(.dark) .spec-point {
+  color: rgb(255 255 255 / 0.65);
+}
+
+@media (min-width: 768px) {
+  .spec-summary {
+    display: block;
+  }
+
+  .spec-summary-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .specifications-grid {
+    grid-template-columns: 0.86fr 1.14fr;
+  }
+}

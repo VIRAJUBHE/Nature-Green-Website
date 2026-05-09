@@ -1,0 +1,27 @@
+<section id="nearby" class="nearby-section">
+  <div class="section-shell">
+    <div appReveal>
+      <app-section-heading
+        kicker="Nearby locations"
+        title="Excellent Connectivity To Everyday Essentials"
+        description="Strategically located in Bavdhan, Nature Green offers seamless connectivity to schools, hospitals, shopping destinations, banks, highways, and major lifestyle conveniences. The project provides residents with the perfect balance of peaceful living and urban accessibility."
+        align="center"
+      />
+    </div>
+
+    <div class="nearby-grid">
+      @for (item of nearby; track item.title) {
+        <article appReveal class="nearby-card">
+          <div class="nearby-card-header">
+            <div class="nearby-icon">
+              <lucide-icon [name]="item.icon" size="22"></lucide-icon>
+            </div>
+            <span class="nearby-meta">{{ item.meta }}</span>
+          </div>
+          <h3 class="nearby-title">{{ item.title }}</h3>
+          <p class="nearby-description">{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

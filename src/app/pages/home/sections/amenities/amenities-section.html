@@ -1,0 +1,25 @@
+<section id="amenities" class="amenities-section">
+  <div class="amenities-glow"></div>
+  <div class="section-shell amenities-shell">
+    <div appReveal>
+      <app-section-heading
+        kicker="Amenities"
+        title="Comfort, Safety, and Practical Daily Support"
+        description="A practical amenity set for everyday convenience, safety, efficient energy use, and comfortable apartment living."
+        align="center"
+      />
+    </div>
+
+    <div class="amenities-grid">
+      @for (item of amenities; track item.title) {
+        <article appReveal class="amenity-card">
+          <div class="amenity-icon">
+            <lucide-icon [name]="item.icon" size="24"></lucide-icon>
+          </div>
+          <h3 class="amenity-title">{{ item.title }}</h3>
+          <p class="amenity-description">{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
