@@ -1,0 +1,13 @@
+<svg width="760" height="190" viewBox="0 0 760 190" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Avani Construction</title>
+  <desc id="desc">Clean Avani Construction wordmark for web use</desc>
+  <rect width="760" height="190" rx="24" fill="#FFFFFF"/>
+  <path d="M70 132L125 38C134 23 157 27 160 45L181 132H145L134 82L104 132H70Z" fill="#2E7D32"/>
+  <path d="M133 82L160 45L181 132H145L133 82Z" fill="#0F3D2E"/>
+  <path d="M205 129L249 56H286L226 148C220 157 207 157 201 148L165 92H203L217 119C219 123 203 133 205 129Z" fill="#0F3D2E"/>
+  <path d="M306 93C311 70 330 56 358 56H424L410 132H373L376 116H341C330 116 323 111 323 102C323 96 328 93 336 93H380L382 82H352C342 82 336 86 334 93H306Z" fill="#0F3D2E"/>
+  <path d="M448 56H535C556 56 566 68 562 88L554 132H518L526 91C527 85 524 82 518 82H485L476 132H439L448 56Z" fill="#0F3D2E"/>
+  <path d="M595 56H632L619 132H582L595 56Z" fill="#0F3D2E"/>
+  <rect x="624" y="37" width="28" height="28" rx="10" fill="#2E7D32"/>
+  <text x="204" y="166" fill="#1F2A24" font-family="Poppins, Montserrat, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="1.5">Construction</text>
+</svg>
