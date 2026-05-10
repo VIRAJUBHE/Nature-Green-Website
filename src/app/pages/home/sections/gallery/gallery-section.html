@@ -15,6 +15,8 @@
           appReveal
           type="button"
           class="gallery-item"
+          [class.is-tall]="image.tall"
+          [class.is-video]="image.mediaType === 'video'"
           (click)="preview(image)"
           [attr.aria-label]="'Preview ' + image.title"
         >

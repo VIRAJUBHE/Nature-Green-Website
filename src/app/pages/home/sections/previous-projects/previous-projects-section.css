@@ -29,17 +29,28 @@
 
 .ongoing-image-wrap,
 .project-image-wrap {
+  position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 3;
-  background: #f5f1eb;
+  background: #f6f4ef;
+}
+
+.ongoing-image-wrap {
+  height: clamp(20rem, 48vw, 30rem);
+}
+
+.project-image-wrap {
+  height: 17rem;
 }
 
 .ongoing-image,
 .project-image {
+  position: absolute;
+  inset: 0;
   display: block;
   height: 100%;
   width: 100%;
   object-fit: contain;
+  object-position: center;
   transition: transform 700ms ease;
 }
 
@@ -123,10 +134,18 @@
   .projects-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .project-image-wrap {
+    height: 17.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
   .projects-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-image-wrap {
+    height: 18rem;
   }
 }

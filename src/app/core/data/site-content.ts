@@ -1,7 +1,6 @@
 export interface NavItem {
   label: string;
   href: string;
-  route: string;
 }
 
 export interface IconCard {
@@ -64,12 +63,12 @@ export const siteContent = {
     floorPlan: '/assets/images/Floor-Plan.webp'
   },
   navItems: [
-    { label: 'About', href: 'about', route: '/about' },
-    { label: 'Highlights', href: 'highlights', route: '/highlights' },
-    { label: 'Gallery', href: 'gallery', route: '/gallery' },
-    { label: 'Plans', href: 'floor-plans', route: '/floor-plans' },
-    { label: 'Amenities', href: 'amenities', route: '/amenities' },
-    { label: 'Contact', href: 'contact', route: '/contact' }
+    { label: 'About', href: 'about' },
+    { label: 'Highlights', href: 'highlights' },
+    { label: 'Gallery', href: 'gallery' },
+    { label: 'Plans', href: 'floor-plans' },
+    { label: 'Amenities', href: 'amenities' },
+    { label: 'Contact', href: 'contact' }
   ] satisfies NavItem[],
   hero: {
     kicker: 'ELEVATED 2BHK LIVING IN BAVDHAN',

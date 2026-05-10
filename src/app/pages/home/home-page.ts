@@ -1,7 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { AfterViewInit, Component, HostListener, inject, PLATFORM_ID, signal } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { Component, HostListener, inject, PLATFORM_ID, signal } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 
 import { FooterComponent } from '../../layout/footer/footer';
@@ -18,8 +16,7 @@ import { MapSectionComponent } from './sections/map/map-section';
 import { NearbySectionComponent } from './sections/nearby/nearby-section';
 import { PreviousProjectsSectionComponent } from './sections/previous-projects/previous-projects-section';
 import { SeoService } from '../../core/seo/seo.service';
-import { routeSeoByPath, seoRoutes } from '../../core/seo/seo-routes';
-import { RouteSeoData } from '../../core/seo/seo.types';
+import { seoRoutes } from '../../core/seo/seo-routes';
 
 @Component({
   selector: 'app-home-page',
@@ -43,26 +40,14 @@ import { RouteSeoData } from '../../core/seo/seo.types';
   templateUrl: './home-page.html',
   styleUrl: './home-page.css'
 })
-export class HomePage implements AfterViewInit {
+export class HomePage {
   private readonly document = inject(DOCUMENT);
   private readonly platformId = inject(PLATFORM_ID);
-  private readonly route = inject(ActivatedRoute);
-  private readonly router = inject(Router);
   private readonly seo = inject(SeoService);
   readonly showBackToTop = signal(false);
 
   constructor() {
-    this.updateSeo();
-    this.router.events
-      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
-      .subscribe(() => {
-        this.updateSeo();
-        this.scrollToRouteSection();
-      });
-  }
-
-  ngAfterViewInit(): void {
-    this.scrollToRouteSection();
+    this.seo.updateRoute(seoRoutes[0]);
   }
 
   @HostListener('window:scroll')
@@ -76,28 +61,5 @@ export class HomePage implements AfterViewInit {
 
   backToTop(): void {
     this.document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
-  }
-
-  private updateSeo(): void {
-    this.seo.updateRoute(this.currentSeo());
-  }
-
-  private scrollToRouteSection(): void {
-    if (!isPlatformBrowser(this.platformId)) {
-      return;
-    }
-
-    window.setTimeout(() => {
-      this.document
-        .getElementById(this.currentSeo().sectionId)
-        ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
-
-  private currentSeo(): RouteSeoData {
-    const seo = this.route.snapshot.data['seo'] as RouteSeoData | undefined;
-    const path = this.router.url.split('?')[0].replace(/^\/+/, '');
-
-    return seo ?? routeSeoByPath.get(path) ?? seoRoutes[0];
   }
 }

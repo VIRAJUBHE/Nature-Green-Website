@@ -3,7 +3,7 @@
   [class.navbar-scrolled]="isScrolled()"
 >
   <nav class="site-nav" aria-label="Primary navigation">
-    <a class="brand-button" routerLink="/" aria-label="Go to Nature Green home">
+    <a class="brand-button" href="#home" aria-label="Go to Nature Green home">
       <span class="brand-mark">
         <img
           [src]="content.brand.mark"
@@ -23,7 +23,7 @@
       <a
         class="nav-pill"
         [class.is-active]="activeSection() === 'home'"
-        routerLink="/"
+        href="#home"
       >
         Home
       </a>
@@ -31,7 +31,7 @@
         <a
           class="nav-pill"
           [class.is-active]="activeSection() === item.href"
-          [routerLink]="item.route"
+          [href]="'#' + item.href"
         >
           {{ item.label }}
         </a>
@@ -60,9 +60,9 @@
 
   @if (isOpen()) {
     <div class="mobile-panel">
-      <a class="mobile-link" routerLink="/" (click)="isOpen.set(false)">Home</a>
+      <a class="mobile-link" href="#home" (click)="isOpen.set(false)">Home</a>
       @for (item of content.navItems; track item.href) {
-        <a class="mobile-link" [routerLink]="item.route" (click)="isOpen.set(false)">{{ item.label }}</a>
+        <a class="mobile-link" [href]="'#' + item.href" (click)="isOpen.set(false)">{{ item.label }}</a>
       }
       <a class="mobile-call" [href]="content.brand.phoneHref">
         <lucide-icon name="Phone" size="17"></lucide-icon>

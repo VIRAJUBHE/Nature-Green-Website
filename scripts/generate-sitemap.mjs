@@ -7,14 +7,7 @@ const baseUrl = 'https://naturegreenpune.in';
 const today = new Date().toISOString().slice(0, 10);
 
 const pages = [
-  { path: '/', priority: '1.0' },
-  { path: '/about', priority: '0.8' },
-  { path: '/highlights', priority: '0.8' },
-  { path: '/gallery', priority: '0.8' },
-  { path: '/floor-plans', priority: '0.9' },
-  { path: '/amenities', priority: '0.8' },
-  { path: '/location', priority: '0.8' },
-  { path: '/contact', priority: '0.7' }
+  { path: '/', priority: '1.0' }
 ];
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
