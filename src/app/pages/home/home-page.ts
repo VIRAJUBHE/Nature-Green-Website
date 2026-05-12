@@ -1,6 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, HostListener, inject, signal } from '@angular/core';
-import { Meta, Title } from '@angular/platform-browser';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Component, HostListener, inject, PLATFORM_ID, signal } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 
 import { FooterComponent } from '../../layout/footer/footer';
@@ -16,6 +15,8 @@ import { HighlightsSectionComponent } from './sections/highlights/highlights-sec
 import { MapSectionComponent } from './sections/map/map-section';
 import { NearbySectionComponent } from './sections/nearby/nearby-section';
 import { PreviousProjectsSectionComponent } from './sections/previous-projects/previous-projects-section';
+import { SeoService } from '../../core/seo/seo.service';
+import { seoRoutes } from '../../core/seo/seo-routes';
 
 @Component({
   selector: 'app-home-page',
@@ -41,22 +42,20 @@ import { PreviousProjectsSectionComponent } from './sections/previous-projects/p
 })
 export class HomePage {
   private readonly document = inject(DOCUMENT);
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly seo = inject(SeoService);
   readonly showBackToTop = signal(false);
 
-  constructor(title: Title, meta: Meta) {
-    title.setTitle('Nature Green | Possession Ready 2BHK Flats in Bavdhan, Pune');
-    meta.updateTag({ name: 'description', content: 'Nature Green by Avani Construction offers possession ready premium 2BHK flats in Bavdhan, Pune with 760 sq.ft carpet area, modern amenities, floor plans, brochure, gallery, and enquiry details.' });
-    meta.updateTag({ name: 'keywords', content: 'Nature Green Bavdhan, possession ready 2BHK Bavdhan, 2BHK flats in Bavdhan Pune, Avani Construction, ready possession flats Pune' });
-    meta.updateTag({ property: 'og:title', content: 'Nature Green | Possession Ready 2BHK Flats in Bavdhan' });
-    meta.updateTag({ property: 'og:description', content: 'View Nature Green by Avani Construction, a possession ready 2BHK residential project in Bavdhan, Pune with amenities, floor plans, gallery, brochure, and enquiry details.' });
-    meta.updateTag({ property: 'og:type', content: 'website' });
-    meta.updateTag({ property: 'og:site_name', content: 'Nature Green' });
-    meta.updateTag({ name: 'twitter:title', content: 'Nature Green | Possession Ready 2BHK Flats in Bavdhan' });
-    meta.updateTag({ name: 'twitter:description', content: 'Possession ready premium 2BHK flats at Bavdhan, Pune by Avani Construction. View plans, amenities, brochure, gallery, and enquiry details.' });
+  constructor() {
+    this.seo.updateRoute(seoRoutes[0]);
   }
 
   @HostListener('window:scroll')
   onScroll(): void {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.showBackToTop.set(window.scrollY > 650);
   }
 

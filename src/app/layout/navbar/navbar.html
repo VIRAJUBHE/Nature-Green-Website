@@ -3,34 +3,38 @@
   [class.navbar-scrolled]="isScrolled()"
 >
   <nav class="site-nav" aria-label="Primary navigation">
-    <button class="brand-button" type="button" (click)="scrollTo('home')" aria-label="Go to Nature Green home">
+    <a class="brand-button" href="#home" aria-label="Go to Nature Green home">
       <span class="brand-mark">
-        <img [src]="content.brand.mark" alt="" class="brand-logo" loading="eager" decoding="async" />
+        <img
+          [src]="content.brand.mark"
+          alt="Avani Construction Nature Green mark"
+          class="brand-logo"
+          loading="eager"
+          decoding="async"
+        />
       </span>
       <span class="brand-copy">
         <span class="brand-company">{{ content.brand.companyName }}</span>
         <span class="brand-project">{{ content.brand.projectName }}</span>
       </span>
-    </button>
+    </a>
 
     <div class="nav-links">
-      <button
-        type="button"
+      <a
         class="nav-pill"
         [class.is-active]="activeSection() === 'home'"
-        (click)="scrollTo('home')"
+        href="#home"
       >
         Home
-      </button>
+      </a>
       @for (item of content.navItems; track item.href) {
-        <button
-          type="button"
+        <a
           class="nav-pill"
           [class.is-active]="activeSection() === item.href"
-          (click)="scrollTo(item.href)"
+          [href]="'#' + item.href"
         >
           {{ item.label }}
-        </button>
+        </a>
       }
     </div>
 
@@ -56,9 +60,9 @@
 
   @if (isOpen()) {
     <div class="mobile-panel">
-      <button class="mobile-link" type="button" (click)="scrollTo('home')">Home</button>
+      <a class="mobile-link" href="#home" (click)="isOpen.set(false)">Home</a>
       @for (item of content.navItems; track item.href) {
-        <button class="mobile-link" type="button" (click)="scrollTo(item.href)">{{ item.label }}</button>
+        <a class="mobile-link" [href]="'#' + item.href" (click)="isOpen.set(false)">{{ item.label }}</a>
       }
       <a class="mobile-call" [href]="content.brand.phoneHref">
         <lucide-icon name="Phone" size="17"></lucide-icon>

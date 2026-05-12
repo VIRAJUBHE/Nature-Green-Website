@@ -25,10 +25,21 @@ export interface SpecificationGroup {
 }
 
 export const siteContent = {
+  site: {
+    baseUrl: 'https://naturegreenpune.in',
+    neighborhood: 'Bavdhan Khurd',
+    city: 'Pune',
+    postalCode: '411021',
+    coordinates: {
+      latitude: 18.5037528,
+      longitude: 73.7644514
+    },
+    openingHours: ['Mo-Sa 10:00-19:00', 'Su 10:00-14:00']
+  },
   brand: {
     companyName: 'Avani Construction',
     projectName: 'Nature Green',
-    location: 'Aparajita Housing Society,  Bavdhan Khurd, Pune',
+    location: 'Aparajita Housing Society, Bavdhan Khurd, Pune',
     projectType: 'Residential Apartment',
     flatType: '2BHK',
     totalFloors: '7 Floors',
@@ -46,10 +57,10 @@ export const siteContent = {
   },
   assets: {
     hero: '/assets/images/hero-nature-green.webp',
-    about: '/assets/images/Residence.png',
+    about: '/assets/images/Residence.webp',
     brochure: '/assets/documents/nature-green-brochure.pdf',
-    brochureCover: '/assets/images/Residence.png',
-    floorPlan: '/assets/images/Floor-Plan.png'
+    brochureCover: '/assets/images/Residence.webp',
+    floorPlan: '/assets/images/Floor-Plan.webp'
   },
   navItems: [
     { label: 'About', href: 'about' },
@@ -61,7 +72,7 @@ export const siteContent = {
   ] satisfies NavItem[],
   hero: {
     kicker: 'ELEVATED 2BHK LIVING IN BAVDHAN',
-    title: 'Nature Green',
+    title: 'Luxury 2 BHK Flats in Bavdhan, Pune',
     subtitle: 'Possession Ready Premium 2BHK Homes at Bavdhan, Pune',
     description:
       'Nature Green by Avani Construction is a possession ready premium 2BHK residential project located in the peaceful surroundings of Bavdhan, Pune. The project combines elegant architecture, green living, quality construction, and everyday convenience to create a comfortable and refined lifestyle experience.',
@@ -130,8 +141,8 @@ export const siteContent = {
     {
       title: 'Facade View',
       category: 'Premium Elevation View',
-      src: '/assets/images/Fascade-View.png',
-      alt: 'Premium apartment facade placeholder for Nature Green',
+      src: '/assets/images/Fascade-View.webp',
+      alt: 'Nature Green 2 BHK residential building facade in Bavdhan Pune',
       tall: true
     },
     // {
@@ -143,41 +154,41 @@ export const siteContent = {
     // {
     //   title: 'Flat Layout',
     //   category: 'Spacious Interior Planning',
-    //   src: '/assets/images/Flat-Plan.png',
+    //   src: '/assets/images/Flat-Plan.webp',
     //   alt: 'Modular kitchen placeholder for Nature Green'
     // },
     {
-      title: 'Grand Lobby Arrival',
-      category: 'Common Area',
+      title: '',
+      category: '',
       src: '/assets/video/Site-Video.mp4',
-      alt: 'Common area video walkthrough for Nature Green',
+      alt: 'Nature Green residential project site walkthrough in Bavdhan Pune',
       mediaType: 'video'
     },
     {
       title: 'Smart Rooftop Planning',
       category: 'TERRACE VIEW',
-      src: '/assets/images/Top-View.png',
-      alt: 'Residential balcony outlook placeholder'
+      src: '/assets/images/Top-View.webp',
+      alt: 'Nature Green terrace view and rooftop planning in Bavdhan Pune'
     },
     {
       title: 'Flat Layout',
       category: 'Spacious Interior Planning',
-      src: '/assets/images/Flat-Plan.png',
-      alt: 'Modular kitchen placeholder for Nature Green'
+      src: '/assets/images/Flat-Plan.webp',
+      alt: 'Nature Green 2 BHK flat layout with living bedroom and kitchen planning'
     },
     
     {
       title: 'Smart Puzzle Parking',
       category: 'Utility',
-      src: '/assets/images/Puzzle-Parking.png',
-      alt: 'Parking area placeholder for Nature Green'
+      src: '/assets/images/Puzzle-Parking.webp',
+      alt: 'Nature Green smart puzzle parking facility for residents'
     }
   ] satisfies GalleryImage[],
   floorPlan: {
     title: '2BHK Typical Plan',
     area: '760 SQ.FT',
-    image: '/assets/images/Floor-Plan.png',
-    alt: '2BHK floor plan placeholder for Nature Green',
+    image: '/assets/images/Floor-Plan.webp',
+    alt: 'Nature Green 2 BHK floor plan with 760 square feet carpet area',
     details: ['2 Spacious Bedrooms', 'Well-Planned Living & Dining Area', 'Functional Kitchen With Utility Space', 'Attached Balcony For Natural Ventilation', 'Efficiently Designed Bath & Toilet Layouts']
   },
   amenities: [
@@ -246,17 +257,17 @@ export const siteContent = {
   },
   ongoingProject: {
     title: 'New Residence',
-    location: 'Aparajita Housing Society,  Bavdhan Khurd, Pune',
-    image: '/assets/images/New-Residence.png',
+    location: 'Aparajita Housing Society, Bavdhan Khurd, Pune',
+    image: '/assets/images/New-Residence.webp',
     mapHref: 'https://www.google.com/maps?q=18.502809,73.763717'
   },
   previousProjects: [
-    { title: 'Swami Residency', image: '/assets/images/Swami-Residency.png' },
-    { title: 'Sadashiv Apartment', image: '/assets/images/Sadashiv-Apartment.png' },
-    { title: 'Paradise Inn', image: '/assets/images/Paradise-Inn.png' },
-    { title: 'Samarth Apartment', image: '/assets/images/Samarth-Apartment.png' },
+    { title: 'Swami Residency', image: '/assets/images/Swami-Residency.webp' },
+    { title: 'Sadashiv Apartment', image: '/assets/images/Sadashiv-Apartment.webp' },
+    { title: 'Paradise Inn', image: '/assets/images/Paradise-Inn.webp' },
+    { title: 'Samarth Apartment', image: '/assets/images/Samarth-Apartment.webp' },
     { title: 'Nakshatra Green', image: '/assets/images/Nakshatra-Green.png' },
-    { title: 'Woodland Villa', image: '/assets/images/Woodland-Villa.png' }
+    { title: 'Woodland Villa', image: '/assets/images/Woodland-Villa.webp' }
   ],
   footerLinks: ['About', 'Highlights', 'Gallery', 'Plans', 'Amenities', 'Contact']
 };

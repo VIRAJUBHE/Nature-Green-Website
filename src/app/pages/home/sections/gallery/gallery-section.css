@@ -13,6 +13,7 @@
 .gallery-item {
   position: relative;
   display: block;
+  aspect-ratio: 4 / 3;
   width: 100%;
   break-inside: avoid;
   margin-bottom: 1.25rem;
@@ -25,6 +26,10 @@
   box-shadow: 0 24px 80px rgb(59 13 17 / 0.1);
 }
 
+.gallery-item.is-tall {
+  aspect-ratio: 3 / 4;
+}
+
 :host-context(.dark) .gallery-item {
   border-color: rgb(255 255 255 / 0.12);
   background: rgb(255 255 255 / 0.06);
@@ -32,15 +37,13 @@
 }
 
 .gallery-image {
+  position: absolute;
+  inset: 0;
   display: block;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   transition: transform 700ms ease;
-}
-
-.gallery-image.is-tall {
-  aspect-ratio: 3 / 4;
 }
 
 .gallery-item:hover .gallery-image {
@@ -48,6 +51,8 @@
 }
 
 .gallery-video {
+  height: 100%;
+  object-fit: cover;
   background: #000000;
 }
 
