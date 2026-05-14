@@ -30,14 +30,14 @@ export class SeoService {
     this.meta.updateTag({ property: 'og:site_name', content: siteContent.brand.projectName });
     this.meta.updateTag({
       property: 'og:image',
-      content: this.absoluteAsset(siteContent.assets.hero)
+      content: this.absoluteAsset(siteContent.assets.thumbnail)
     });
     this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
     this.meta.updateTag({ name: 'twitter:title', content: route.title });
     this.meta.updateTag({ name: 'twitter:description', content: route.description });
     this.meta.updateTag({
       name: 'twitter:image',
-      content: this.absoluteAsset(siteContent.assets.hero)
+      content: this.absoluteAsset(siteContent.assets.thumbnail)
     });
 
     this.setCanonical(canonicalUrl);
@@ -83,7 +83,7 @@ export class SeoService {
       name: `${route.primaryKeyword} at ${siteContent.brand.projectName}`,
       url: canonicalUrl,
       image: [
-        this.absoluteAsset(siteContent.assets.hero),
+        this.absoluteAsset(siteContent.assets.thumbnail),
         this.absoluteAsset('/assets/images/Fascade-View.webp'),
         this.absoluteAsset('/assets/images/Floor-Plan.webp')
       ],

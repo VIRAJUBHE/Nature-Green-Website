@@ -52,11 +52,13 @@ export const siteContent = {
     whatsappHref: 'https://wa.me/919145302404?text=Hello%20Avani%20Construction%2C%20I%20want%20to%20enquire%20about%20Nature%20Green.',
     email: 'vijayrubhe13679@gmail.com',
     emailHref: 'mailto:vijayrubhe13679@gmail.com?subject=Nature%20Green%20Enquiry',
-    logo: '/assets/images/avani-construction-logo-real.webp',
-    mark: '/assets/images/avani-mark-real.webp'
+    // logo: '/favicon.ico',
+    logo:'/assets/images/avani-construction-logo-real.png',
+    mark: '/assets/images/avani-mark-real.png'
   },
   assets: {
     hero: '/assets/images/hero-nature-green.webp',
+    thumbnail: '/assets/images/Residence.png',
     about: '/assets/images/Residence.webp',
     brochure: '/assets/documents/nature-green-brochure.pdf',
     brochureCover: '/assets/images/Residence.webp',
