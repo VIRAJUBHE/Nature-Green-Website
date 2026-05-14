@@ -25,11 +25,13 @@ export class ContactSectionComponent {
   readonly sending = signal(false);
 
   async submit(form: NgForm): Promise<void> {
-    if (form.invalid) {
+    const value = this.normalizeFormValue(form.value as EnquiryFormValue);
+
+    if (this.sending() || form.invalid || !this.isValidEnquiry(value)) {
+      form.control.markAllAsTouched();
       return;
     }
 
-    const value = form.value as EnquiryFormValue;
     const subject = 'Nature Green Enquiry';
     const body = [
       'New enquiry from Nature Green website:',
@@ -75,5 +77,29 @@ export class ContactSectionComponent {
     } finally {
       this.sending.set(false);
     }
+  }
+
+  private normalizeFormValue(value: EnquiryFormValue): Required<EnquiryFormValue> {
+    return {
+      name: value.name?.trim() ?? '',
+      phone: value.phone?.trim() ?? '',
+      email: value.email?.trim() ?? '',
+      message: value.message?.trim() ?? ''
+    };
+  }
+
+  private isValidEnquiry(value: Required<EnquiryFormValue>): boolean {
+    const namePattern = /\S/;
+    const phonePattern = /^[789]\d{9}$/;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    return (
+      namePattern.test(value.name) &&
+      phonePattern.test(value.phone) &&
+      emailPattern.test(value.email) &&
+      value.email.length <= 120 &&
+      value.message.length > 0 &&
+      value.message.length <= 500
+    );
   }
 }

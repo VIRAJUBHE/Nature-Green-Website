@@ -25,30 +25,68 @@
       </div>
     </div>
 
-    <form appReveal #form="ngForm" class="contact-form" (ngSubmit)="submit(form)">
+    <form appReveal #form="ngForm" class="contact-form" ngNativeValidate (ngSubmit)="submit(form)">
       <div class="field-grid">
         <label class="field">
           <span>Name</span>
-          <input name="name" ngModel required autocomplete="name" placeholder="Your name" />
+          <input
+            name="name"
+            ngModel
+            required
+            minlength="2"
+            maxlength="80"
+            pattern="[A-Za-z][A-Za-z .'-]*"
+            autocomplete="name"
+            placeholder="Your name"
+            title="Please enter a valid name."
+          />
         </label>
         <label class="field">
           <span>Phone</span>
-          <input name="phone" ngModel required inputmode="tel" autocomplete="tel" placeholder="+91" />
+          <input
+            name="phone"
+            ngModel
+            required
+            minlength="10"
+            maxlength="10"
+            pattern="[789]\d{9}"
+            inputmode="numeric"
+            autocomplete="tel"
+            placeholder="9876543210"
+            title="Please enter a 10-digit phone number starting with 9, 8, or 7."
+          />
         </label>
       </div>
 
       <label class="field field-spaced">
         <span>Email</span>
-        <input name="email" ngModel type="email" autocomplete="email" placeholder="you@example.com" />
+        <input
+          name="email"
+          ngModel
+          type="email"
+          required
+          pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+          maxlength="120"
+          autocomplete="email"
+          placeholder="you@example.com"
+          title="Please enter a valid email address."
+        />
       </label>
 
       <label class="field field-spaced">
         <span>Message</span>
-        <textarea name="message" ngModel rows="5" placeholder="I want to know more about Nature Green"></textarea>
+        <textarea
+          name="message"
+          ngModel
+          rows="5"
+          required
+          maxlength="500"
+          placeholder="I want to know more about Nature Green"
+        ></textarea>
       </label>
 
       <div class="form-actions">
-        <button class="btn-primary" type="submit">
+        <button class="btn-primary" type="submit" [disabled]="sending()">
           {{ sending() ? 'Sending...' : 'Request A Callback' }}
           <lucide-icon name="ChevronRight" size="18"></lucide-icon>
         </button>
